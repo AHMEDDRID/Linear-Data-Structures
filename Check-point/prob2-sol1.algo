@@ -1,0 +1,26 @@
+ALGORITHM Prob2-Sol1
+VAR
+    set1 : ARRAY_OF INTEGER[4];
+    set2 : ARRAY_OF INTEGER[4];
+    i,k,j,sum : INTEGER;
+BEGIN
+set1:= {12, 13, 6, 10}
+set2:= {13, 10, 16, 15}
+    sum:=0
+    k:=0
+    FOR i FROM 0 TO set2.length-1 STEP 1  DO
+        WHILE (k < set1.length) DO
+            IF (set1[k] <> set2[i]) THEN
+                sum := sum + set2[i]
+                k := k +1 
+                 write(set2[i])
+                ELSE
+                   sum:= sum
+                   k := k +1 
+            
+            END_IF
+        END_WHILE
+    END_FOR
+  
+    write(sum)
+END

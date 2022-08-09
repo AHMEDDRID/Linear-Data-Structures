@@ -1,0 +1,30 @@
+
+
+   ALGORITHM Prob1-Sol2
+VAR
+   htab : HASH_TABLE<INTEGER,INTEGER>;
+   arr : ARRAY_OF INTEGER[50];
+   i,count : INTEGER;
+   k : INTEGER;
+BEGIN
+   Read(arr);
+// first we browse the string to define the count of each character
+   FOR i FROM 0 TO arr.length -1 STEP 1  DO
+       IF (htab.lookup(arr[i]) = TRUE) THEN
+           count := htab.get(str[i]);
+           htab.insert(str[i],count+1);
+       ELSE
+           htab.insert(str[i],1);
+       END_IF
+   END_FOR
+// Now we loop the hash table to extract the first unique character
+   k :=0
+   FOR i FROM 0 TO str.length -1 STEP 1  DO
+       IF (htab.get(str[i]) >= 2) THEN
+           k := str[i];
+           BREAK;
+       END_IF
+   END_FOR
+
+   Write(k);
+END
